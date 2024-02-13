@@ -16,17 +16,21 @@ exclude = [
 crate-type = ["cdylib", "rlib"]
 
 [features]
+schema = []
 default = []
 utils = []
 
 [dependencies]
 snafu = { version = "0.7.1" }
-serde = { version = "1.0.103", default-features = false, features = ["derive", "alloc"] }
+serde = { version = "1.0.103", default-features = false, features = [
+  "derive",
+  "alloc",
+] }
 schemars = "0.8.9"
 cosmwasm-std = { git = "https://github.com/scrtlabs/cosmwasm", branch = "secret" }
 cosmwasm-storage = { git = "https://github.com/scrtlabs/cosmwasm", branch = "secret" }
-cosmwasm-schema = { git = "https://github.com/CosmWasm/cosmwasm"}
-snip20-reference-impl = { path = "../../contracts/snip20"}
+cosmwasm-schema = { git = "https://github.com/CosmWasm/cosmwasm" }
+snip20-reference-impl = { path = "../../contracts/snip20" }
 sha2 = { version = "0.9.1", default-features = false }
 subtle = { version = "2.2.3", default-features = false }
 rand_chacha = { version = "0.2.2", default-features = false }
@@ -36,3 +40,9 @@ chrono = { version = "=0.4.19" }
 secret-multi-test = { git = "https://github.com/securesecrets/secret-plus-utils", version = "0.13.4" }
 # shadeswap-derive-canonize = { path = "../shadeswap_derive_canonize" }
 getrandom = { version = "0.2", features = ["js"] } # Prevents wasm from freaking out when running make
+
+
+[[bin]]
+name = "schema"
+path = "src/bin/schema.rs"
+required-features = ["schema"]
