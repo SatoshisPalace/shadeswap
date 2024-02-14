@@ -13,7 +13,6 @@ contracts/hackatom/hash.txt
 **/contract.wasm
 
 # IDEs
-.vscode/
 .idea/
 *.iml
 

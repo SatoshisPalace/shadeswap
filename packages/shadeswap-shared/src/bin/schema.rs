@@ -48,4 +48,20 @@ fn main() {
     export_schema(&schema_for!(staking::InitMsg), &staking_out_dir);
     export_schema(&schema_for!(staking::QueryMsg), &staking_out_dir);
     export_schema(&schema_for!(staking::QueryResponse), &staking_out_dir);
+
+    //Admin
+    let admin_out_dir = base_out_dir.join("admin");
+    create_dir_all(&admin_out_dir).unwrap();
+    export_schema(&schema_for!(admin::ExecuteMsg), &admin_out_dir);
+    export_schema(&schema_for!(admin::QueryMsg), &admin_out_dir);
+    export_schema(&schema_for!(admin::RegistryAction), &admin_out_dir);
+    export_schema(&schema_for!(admin::InstantiateMsg), &admin_out_dir);
+    export_schema(&schema_for!(admin::AdminsResponse), &admin_out_dir);
+    export_schema(
+        &schema_for!(admin::ValidateAdminPermissionResponse),
+        &admin_out_dir,
+    );
+    export_schema(&schema_for!(admin::ConfigResponse), &admin_out_dir);
+    export_schema(&schema_for!(admin::PermissionsResponse), &admin_out_dir);
+    export_schema(&schema_for!(admin::AdminAuthStatus), &admin_out_dir);
 }
