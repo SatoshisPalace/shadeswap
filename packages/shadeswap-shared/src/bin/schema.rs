@@ -40,6 +40,7 @@ fn main() {
     export_schema(&schema_for!(router::InitMsg), &router_out_dir);
     export_schema(&schema_for!(router::QueryMsg), &router_out_dir);
     export_schema(&schema_for!(router::QueryMsgResponse), &router_out_dir);
+    export_schema(&schema_for!(router::InvokeMsg), &router_out_dir);
 
     // staking
     let staking_out_dir = base_out_dir.join("staking");
